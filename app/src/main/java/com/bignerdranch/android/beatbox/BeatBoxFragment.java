@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import java.util.List;
 
+//for commit
 public class BeatBoxFragment extends Fragment {
 
 	private BeatBox mBeatBox;

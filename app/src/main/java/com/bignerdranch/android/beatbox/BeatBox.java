@@ -23,9 +23,9 @@ public class BeatBox {
 
 	public BeatBox(Context context) {
 		mAssets = context.getAssets();
-		loadSounds();
 //		This old constructor is deprecated, but we need it for compatibility
 		mSoundPool = new SoundPool(MAX_SOUNDS, AudioManager.STREAM_MUSIC, 0);
+		loadSounds();
 	}
 
 	private void loadSounds() {
@@ -54,6 +54,18 @@ public class BeatBox {
 		AssetFileDescriptor afd = mAssets.openFd(sound.getAssetPath());
 		int soundId = mSoundPool.load(afd, 1);
 		sound.setSoundId(soundId);
+	}
+
+	public void play(Sound sound) {
+		Integer soundId = sound.getSoundId();
+		if (sound == null) {
+			return;
+		}
+		mSoundPool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f);
+	}
+
+	public void release() {
+		mSoundPool.release();
 	}
 
 	public List<Sound> getSounds() {

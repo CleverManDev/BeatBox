@@ -37,7 +37,7 @@ public class BeatBox {
 			Log.e(TAG, "Could not list assets", ioe);
 			return;
 		}
-		mSounds = new ArrayList<Sound>();
+		mSounds = new ArrayList<>();
 		for (String filename : soundNames) {
 			try {
 				String assetPath = SOUND_FOLDER + "/" + filename;
